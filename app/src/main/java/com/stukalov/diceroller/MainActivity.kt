@@ -7,7 +7,7 @@ import android.widget.ImageView
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
-
+    lateinit var diceImage : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener {
             rollDice()
         }
+        diceImage = findViewById(R.id.dice_image)
     }
 
     private fun rollDice() {
         val randomInt = Random.nextInt(1,7)
-        val diceImage = findViewById<ImageView>(R.id.dice_image)
         val drawableResource = when (randomInt) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
